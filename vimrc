@@ -77,7 +77,7 @@ colorscheme distinguished
 set tabstop=4
 set shiftwidth=4
 set list
-set listchars=tab:»\ ,trail:X
+set listchars=tab:│\ ,trail:X
 set noexpandtab
 set number
 
