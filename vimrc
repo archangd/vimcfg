@@ -1,4 +1,6 @@
 let mapleader= ","
+scriptencoding utf-8
+set encoding=utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle Configuration
 set nocompatible
@@ -7,20 +9,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" JavaScript related bundles
-" According to http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Raimondi/delimitMate'
+" Common bundles
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Yggdroot/indentLine'
+" JavaScript bundles
+Plugin 'othree/yajs.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'Raimondi/delimitMate'
 Plugin 'marijnh/tern_for_vim'
 
 call vundle#end()
-filetype plugin indent on
+"filetype plugin indent on
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -34,12 +36,18 @@ filetype plugin indent on
 " Put your non-Plugin stuff after this line
 
 " Bundles' Configurations:
-"  scrooloose/syntastick
+"  syntastick
 let g:syntastic_check_on_open=1
-"  Valloric/YouCompleteMe
+let g:syntastic_javascript_jshint_args = "-c ~/.vim/conf/jshint.json"
+let g:ycm_show_diagnostics_ui=0
+"  YouCompleteMe
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
+"  indentLine
+let g:indentLine_enabled=1
+let g:indentLine_char='»'
+let g:indentLine_color_term='darkgrey'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 syntax on
@@ -48,6 +56,8 @@ colorscheme distinguished
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tabstop=4
 set shiftwidth=4
+set list
+set listchars=tab:»\ ,trail:.
 set noexpandtab
 augroup python
 	autocmd!
@@ -90,3 +100,8 @@ vnoremap <left> <nop>
 nnoremap <down> <nop>
 inoremap <down> <nop>
 vnoremap <down> <nop>
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
