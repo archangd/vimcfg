@@ -1,4 +1,4 @@
-let mapleader= ","
+let mapleader = ","
 scriptencoding utf-8
 set encoding=utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -13,16 +13,15 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Yggdroot/indentLine'
+Plugin 'Raimondi/delimitMate'
 " JavaScript bundles
 Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'Raimondi/delimitMate'
-Plugin 'marijnh/tern_for_vim'
 
 call vundle#end()
-"filetype plugin indent on
+filetype plugin indent on
 " To ignore plugin indent changes, instead use:
-filetype plugin on
+"filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -36,18 +35,32 @@ filetype plugin on
 " Put your non-Plugin stuff after this line
 
 " Bundles' Configurations:
-"  syntastick
-let g:syntastic_check_on_open=1
+"  syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_enable_balloons = 1
+let g:syntastic_loc_list_height = 5
+
 let g:syntastic_javascript_jshint_args = "-c ~/.vim/conf/jshint.json"
-let g:ycm_show_diagnostics_ui=0
+let g:ycm_show_diagnostics_ui = 0
 "  YouCompleteMe
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_confirm_extra_conf=0
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_confirm_extra_conf = 0
 set completeopt-=preview
 "  indentLine
-let g:indentLine_enabled=1
-let g:indentLine_char='»'
-let g:indentLine_color_term='darkgrey'
+let g:indentLine_enabled = 1
+let g:indentLine_char = '»'
+let g:indentLine_color_term = 'darkgrey'
+"  delimitMate
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 syntax on
@@ -59,16 +72,6 @@ set shiftwidth=4
 set list
 set listchars=tab:»\ ,trail:.
 set noexpandtab
-augroup python
-	autocmd!
-	" highlight characters past column 80
-	autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-	autocmd FileType python match Excess /\%80v.*/
-	autocmd FileType python set nowrap
-	autocmd FileType python set tabstop=4
-	autocmd FileType python set shiftwidth=4
-	autocmd FileType python set expandtab
-augroup END
 
 " Inspired by 'Learn Vimscript the Hard Way'
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -79,11 +82,16 @@ nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>l
 vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>`>l
 
+nnoremap <leader>a :lprevious<cr>
+nnoremap <leader>f :lnext<cr>
+
 nnoremap H I<esc>
 nnoremap L A<esc>
 
 inoremap jk <esc>
 vnoremap jk <esc>
+inoremap kj <esc>
+vnoremap kj <esc>
 
 nnoremap <esc> <nop>
 inoremap <esc> <nop>
@@ -105,3 +113,31 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype specialized configurations
+augroup python
+	autocmd!
+	" highlight characters past column 80
+	autocmd FileType python highlight Excess ctermbg = DarkGrey guibg = Black
+	autocmd FileType python match Excess /\%80v.*/
+	autocmd FileType python set nowrap
+	autocmd FileType python set tabstop=4
+	autocmd FileType python set shiftwidth=4
+	autocmd FileType python set expandtab
+	autocmd FileType python let b:delimitMate_matchpairs = "(:),[:],{:}"
+augroup END
+
+augroup vim
+	autocmd!
+	autocmd FileType vim let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+augroup END
+
+augroup html
+	autocmd!
+	autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+augroup END
+
+augroup javascript
+	autocmd!
+	autocmd FileType javascript let b:delimitMate_matchpairs = "(:),[:],{:}"
+augroup END
