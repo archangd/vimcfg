@@ -17,6 +17,8 @@ Plugin 'Raimondi/delimitMate'
 " JavaScript bundles
 Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
+" Python bundles
+Plugin 'klen/python-mode'
 
 call vundle#end()
 filetype plugin indent on
@@ -56,11 +58,17 @@ let g:ycm_confirm_extra_conf = 0
 set completeopt-=preview
 "  indentLine
 let g:indentLine_enabled = 1
-let g:indentLine_char = '»'
+let g:indentLine_char = '│'
 let g:indentLine_color_term = 'darkgrey'
 "  delimitMate
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
+" python-mode
+let g:pymode = 1
+let g:pymode_warnings = 0
+let g:pymode_indent = 1
+let g:pymode_folding = 0
+let g:pymode_python = 'python3'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 syntax on
@@ -70,8 +78,9 @@ colorscheme distinguished
 set tabstop=4
 set shiftwidth=4
 set list
-set listchars=tab:»\ ,trail:.
+set listchars=tab:»\ ,trail:X
 set noexpandtab
+set number
 
 " Inspired by 'Learn Vimscript the Hard Way'
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -120,10 +129,11 @@ augroup python
 	" highlight characters past column 80
 	autocmd FileType python highlight Excess ctermbg = DarkGrey guibg = Black
 	autocmd FileType python match Excess /\%80v.*/
-	autocmd FileType python set nowrap
-	autocmd FileType python set tabstop=4
-	autocmd FileType python set shiftwidth=4
-	autocmd FileType python set expandtab
+	autocmd FileType python setlocal nowrap
+	autocmd FileType python setlocal tabstop=4
+	autocmd FileType python setlocal shiftwidth=4
+	autocmd FileType python setlocal expandtab
+	autocmd FileType python let b:syntastic_mode = 'passive'
 	autocmd FileType python let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
 
