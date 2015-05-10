@@ -62,7 +62,6 @@ let g:indentLine_char = '│'
 let g:indentLine_color_term = 'darkgrey'
 "  delimitMate
 let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
 " python-mode
 let g:pymode = 1
 let g:pymode_warnings = 0
