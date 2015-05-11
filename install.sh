@@ -9,7 +9,7 @@ vim +PluginInstall +qall
 
 mkdir /tmp/ycm_build
 cd /tmp/ycm_build
-cmake -G "Unix Makefiles" -DUSE_SYSTEM_BOOST=ON -DEXTERNAL_LIBCLANG_PATH=/usr/lib64/libclang.so.3.6 -DPATH_TO_LLVM_ROOT=/tmp/ycm_build/llvm_root_dir . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+cmake -G "Unix Makefiles" -DUSE_SYSTEM_BOOST=ON -DEXTERNAL_LIBCLANG_PATH=/usr/lib64/libclang.so -DPATH_TO_LLVM_ROOT=/tmp/ycm_build/llvm_root_dir . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 make ycm_support_libs
 
 su -c "npm install -g jshint"
