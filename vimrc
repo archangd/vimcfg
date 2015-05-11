@@ -80,6 +80,7 @@ set list
 set listchars=tab:│\ ,trail:X
 set noexpandtab
 set number
+set hlsearch
 
 " Inspired by 'Learn Vimscript the Hard Way'
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
