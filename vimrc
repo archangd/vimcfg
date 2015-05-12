@@ -100,9 +100,6 @@ nnoremap H I<esc>
 nnoremap L A<esc>
 
 inoremap jk <esc>
-vnoremap jk <esc>
-inoremap kj <esc>
-vnoremap kj <esc>
 
 nnoremap <esc> <nop>
 inoremap <esc> <nop>
