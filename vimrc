@@ -101,9 +101,7 @@ nnoremap L A<esc>
 
 inoremap jk <esc>
 
-nnoremap <esc> <nop>
 inoremap <esc> <nop>
-vnoremap <esc> <nop>
 nnoremap <up> <nop>
 inoremap <up> <nop>
 vnoremap <up> <nop>
