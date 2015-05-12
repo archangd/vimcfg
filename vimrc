@@ -146,6 +146,9 @@ augroup END
 
 augroup html
 	autocmd!
+	autocmd FileType html setlocal tabstop=2
+	autocmd FileType html setlocal shiftwidth=2
+	autocmd FileType html setlocal expandtab
 	autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 augroup END
 
