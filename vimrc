@@ -14,6 +14,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Raimondi/delimitMate'
+Plugin 'bling/vim-airline'
 " JavaScript bundles
 Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
@@ -37,10 +38,11 @@ filetype plugin indent on
 " Put your non-Plugin stuff after this line
 
 " Bundles' Configurations:
+"  air-line
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
 "  syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
