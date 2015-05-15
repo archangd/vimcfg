@@ -121,6 +121,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 nnoremap <leader>n :nohls<cr>
+
+nnoremap <leader>x :bn<cr>
+nnoremap <leader>z :bp<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specialized configurations
 augroup python
