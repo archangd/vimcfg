@@ -20,6 +20,8 @@ Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
 " Python bundles
 Plugin 'klen/python-mode'
+" TeX bundles
+Plugin 'hura/vim-asymptote'
 
 call vundle#end()
 filetype plugin indent on
