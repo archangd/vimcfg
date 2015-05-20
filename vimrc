@@ -148,6 +148,7 @@ augroup END
 
 augroup html
 	autocmd!
+	autocmd FileType html setlocal nowrap
 	autocmd FileType html setlocal tabstop=2
 	autocmd FileType html setlocal shiftwidth=2
 	autocmd FileType html setlocal expandtab
