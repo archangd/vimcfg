@@ -2,7 +2,7 @@
 Personal VIM Configurations
 
 ## Prerequisites
-llvm npm boost-c++ cmake
+llvm npm boost-c++ cmake clang python-dev
 
 ## Installation
 ```
