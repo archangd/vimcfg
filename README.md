@@ -1,9 +1,27 @@
 # vimcfg
-Personal VIM Configurations
+Personal Vim Configurations
 
 ## Prerequisites
 llvm npm boost-c++ cmake clang python-dev
 
+* Debian
+```
+wget https://nodejs.org/dist/latest/`wget https://nodejs.org/dist/latest/SHASUMS.txt \
+  -qO- | awk '{print $2}' | grep linux-x64`\
+  -O /tmp/node.tar.gz
+cd /usr/local && tar --strip-components 1 -xzf /tmp/node.tar.gz
+apt-get install boost-c++ cmake libclang-dev python-dev
+npm install -g jshint
+```
+* OpenSUSE
+```
+wget https://nodejs.org/dist/latest/`wget https://nodejs.org/dist/latest/SHASUMS.txt \
+  -qO- | awk '{print $2}' | grep linux-x64`\
+  -O /tmp/node.tar.gz
+cd /usr/local && tar --strip-components 1 -xzf /tmp/node.tar.gz
+zypper in cmake boost-devel llvm-clang-devel python-devel
+npm install -g jshint
+```
 ## Installation
 ```
 git clone https://github.com/archangd/vimcfg.git ~/.vim
