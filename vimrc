@@ -15,6 +15,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-distinguished'
 " JavaScript bundles
 Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
@@ -151,7 +152,7 @@ augroup html
 	autocmd FileType html setlocal nowrap
 	autocmd FileType html setlocal tabstop=2
 	autocmd FileType html setlocal shiftwidth=2
-	autocmd FileType html setlocal expandtab
+	autocmd FileType html setlocal noexpandtab
 	autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 augroup END
 
