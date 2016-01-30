@@ -14,7 +14,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Raimondi/delimitMate'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/vim-distinguished'
 " JavaScript bundles
 Plugin 'othree/yajs.vim'
@@ -160,3 +161,5 @@ augroup javascript
 	autocmd!
 	autocmd FileType javascript let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
+
+call pymode#default('g:pymode_rope_autoimport', 0)
