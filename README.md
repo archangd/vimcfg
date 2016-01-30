@@ -11,7 +11,7 @@ wget https://nodejs.org/dist/latest/`wget \
 	-qO- | awk '{print $2}' | grep linux-x64.*gz` \
 	-O /tmp/node.tar.gz
 cd /usr/local && tar --strip-components 1 -xzf /tmp/node.tar.gz
-apt-get install libboost-all-dev cmake libclang-dev python-dev
+apt-get install libboost-all-dev cmake libclang-dev libclang1 python-dev
 npm install -g jshint
 ```
 * OpenSUSE
