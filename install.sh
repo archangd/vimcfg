@@ -8,7 +8,7 @@ vim +PluginInstall +qall
 mkdir /tmp/ycm_build
 cd /tmp/ycm_build
 cmake -G "Unix Makefiles" -DUSE_SYSTEM_BOOST=ON -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-make ycm_support_libs
+cmake --build . --target ycm_core
 
-#cd ~/.vim/bundle/tern_for_vim/
-#npm install
+cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/tern_runtime
+npm install --production

@@ -1,4 +1,5 @@
 let mapleader = ","
+let maplocalleader = "\\"
 scriptencoding utf-8
 set encoding=utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -20,10 +21,14 @@ Plugin 'Lokaltog/vim-distinguished'
 " JavaScript bundles
 Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
+Bundle 'elzr/vim-json'
 " Python bundles
 Plugin 'klen/python-mode'
 " TeX bundles
+Plugin 'lervag/vimtex'
 Plugin 'hura/vim-asymptote'
+" Racket
+Plugin 'wlangstroth/vim-racket'
 
 call vundle#end()
 filetype plugin indent on
@@ -59,6 +64,8 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_javascript_jshint_args = "-c ~/.vim/conf/jshint.json"
 let g:ycm_show_diagnostics_ui = 0
 "  YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+let g:ycm_python_binary_path = '/usr/bin/python'
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_confirm_extra_conf = 0
 set completeopt-=preview
@@ -74,6 +81,14 @@ let g:pymode_warnings = 0
 let g:pymode_indent = 1
 let g:pymode_folding = 0
 let g:pymode_python = 'python3'
+" racket
+let g:syntastic_enable_racket_racket_checker = 1
+" vimtex
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_viewer = 'zathura'
+let g:tex_conceal = ''
+" vim-json
+let g:vim_json_syntax_conceal = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 syntax on
@@ -155,6 +170,15 @@ augroup html
 	autocmd FileType html setlocal shiftwidth=2
 	autocmd FileType html setlocal noexpandtab
 	autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+augroup END
+
+augroup racket
+	autocmd!
+	autocmd FileType racket setlocal nowrap
+	autocmd FileType racket setlocal tabstop=2
+	autocmd FileType racket setlocal shiftwidth=2
+	autocmd FileType racket setlocal expandtab
+	autocmd FileType racket let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
 
 augroup javascript
