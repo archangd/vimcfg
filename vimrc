@@ -143,6 +143,7 @@ nnoremap <leader>n :nohls<cr>
 
 nnoremap <leader>x :bn<cr>
 nnoremap <leader>z :bp<cr>
+nnoremap <leader>d :bd<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specialized configurations
 augroup python
@@ -186,4 +187,18 @@ augroup javascript
 	autocmd FileType javascript let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
 
+augroup tex
+	autocmd!
+	" highlight characters past column 80
+	autocmd FileType tex highlight Excess ctermbg = DarkGrey guibg = Black
+	autocmd FileType tex match Excess /\%80v.*/
+	autocmd FileType tex setlocal nowrap
+	autocmd FileType tex setlocal tabstop=4
+	autocmd FileType tex setlocal shiftwidth=4
+	autocmd FileType tex setlocal expandtab
+augroup END
+
 call pymode#default('g:pymode_rope_autoimport', 0)
+
+set exrc
+set secure
