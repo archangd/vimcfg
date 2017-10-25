@@ -2,6 +2,7 @@ let mapleader = ","
 let maplocalleader = "\\"
 scriptencoding utf-8
 set encoding=utf-8
+set fencs=utf-8,gbk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle Configuration
 set nocompatible
@@ -123,7 +124,7 @@ nnoremap L A<esc>
 
 inoremap jk <esc>
 
-inoremap <esc> <nop>
+" inoremap <esc> <nop>
 nnoremap <up> <nop>
 inoremap <up> <nop>
 vnoremap <up> <nop>
