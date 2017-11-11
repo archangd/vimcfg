@@ -67,6 +67,7 @@ let g:syntastic_loc_list_height = 5
 
 let g:syntastic_javascript_jshint_args = "-c ~/.vim/conf/jshint.json"
 let g:ycm_show_diagnostics_ui = 0
+
 "  YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 let g:ycm_python_binary_path = '/usr/bin/python'
@@ -608,8 +609,8 @@ augroup tex
 	autocmd!
 	" highlight characters past column 80
 	autocmd FileType tex setlocal nowrap
-	autocmd FileType tex setlocal tabstop=4
-	autocmd FileType tex setlocal shiftwidth=4
+	autocmd FileType tex setlocal tabstop=2
+	autocmd FileType tex setlocal shiftwidth=2
 	autocmd FileType tex setlocal expandtab
 	autocmd FileType tex highlight Excess ctermbg = DarkGrey guibg = Black
 	autocmd FileType tex match Excess /\%80v.*/
