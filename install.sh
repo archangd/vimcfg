@@ -5,10 +5,5 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 vim +PluginInstall +qall
 
-mkdir /tmp/ycm_build
-cd /tmp/ycm_build
-cmake -G "Unix Makefiles" -DUSE_SYSTEM_BOOST=ON -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-cmake --build . --target ycm_core
-
-cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/tern_runtime
-npm install --production
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all --system-libclang --system-boost

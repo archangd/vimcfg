@@ -1,6 +1,0 @@
-{
-	"esnext": true,
-	"devel": true,
-	"worker": true,
-	"typed": true
-}
