@@ -114,6 +114,9 @@ set list
 set listchars=tab:│\ ,trail:X
 set number
 set hlsearch
+" folding
+set foldmethod=syntax
+set nofoldenable
 
 " Inspired by 'Learn Vimscript the Hard Way'
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
