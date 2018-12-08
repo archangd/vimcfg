@@ -14,12 +14,15 @@ Plugin 'gmarik/Vundle.vim'
 " Common bundles
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'Konfekt/FastFold'
+Plugin 'ludovicchabant/vim-gutentags'
 " JavaScript bundles
 Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
@@ -92,11 +95,25 @@ let g:pymode_python = 'python3'
 " racket
 let g:syntastic_enable_racket_racket_checker = 1
 " vimtex
+let g:tex_flavor = "latex"
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_general_viewer = 'zathura'
 let g:tex_conceal = ''
 " vim-json
 let g:vim_json_syntax_conceal = 0
+" fastfold
+let g:markdown_folding = 1
+let g:tex_fold_enabled = 1
+let g:vimsyn_folding = 'af'
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:sh_fold_enabled= 7
+let g:ruby_fold = 1
+let g:perl_fold = 1
+let g:perl_fold_blocks = 1
+let g:r_syntax_folding = 1
+let g:rust_fold = 1
+let g:php_folding = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 syntax on
@@ -115,8 +132,16 @@ set listchars=tab:│\ ,trail:X
 set number
 set hlsearch
 " folding
-set foldmethod=syntax
+set foldmethod=manual
 set nofoldenable
+"indent
+set cinoptions+=:0
+
+"YCM jump
+nnoremap <leader>jj :YcmCompleter GoTo<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>jc :YcmCompleter GoToDeclaratio<CR>
+
 
 " Inspired by 'Learn Vimscript the Hard Way'
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -200,6 +225,8 @@ augroup tex
 	autocmd FileType tex setlocal tabstop=2
 	autocmd FileType tex setlocal shiftwidth=2
 	autocmd FileType tex setlocal expandtab
+    autocmd FileType tex let b:delimitMate_quotes = "\" ' $"
+	autocmd FileType tex let b:delimitMate_matchpairs = "(:),[:],{:}"
 	autocmd FileType tex highlight Excess ctermbg = DarkGrey guibg = Black
 	autocmd FileType tex match Excess /\%80v.*/
 augroup END
