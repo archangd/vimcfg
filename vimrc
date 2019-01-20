@@ -133,6 +133,8 @@ set list
 set listchars=tab:│\ ,trail:X
 set number relativenumber
 set hlsearch
+set splitright
+set splitbelow
 " folding
 set foldmethod=manual
 set nofoldenable
