@@ -30,6 +30,7 @@ Plugin 'elzr/vim-json'
 Plugin 'othree/javascript-libraries-syntax.vim'
 " Python bundles
 Plugin 'klen/python-mode'
+Plugin 'szymonmaszke/vimpyter'
 " TeX bundles
 Plugin 'lervag/vimtex'
 Plugin 'hura/vim-asymptote'
