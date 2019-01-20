@@ -23,6 +23,7 @@ Plugin 'Lokaltog/vim-distinguished'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'Konfekt/FastFold'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 " JavaScript bundles
 Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
@@ -130,7 +131,7 @@ set expandtab
 "set noexpandtab
 set list
 set listchars=tab:│\ ,trail:X
-set number
+set number relativenumber
 set hlsearch
 " folding
 set foldmethod=manual
