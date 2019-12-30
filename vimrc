@@ -104,6 +104,9 @@ let g:tex_conceal = ''
 " vim-json
 let g:vim_json_syntax_conceal = 0
 " fastfold
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 let g:markdown_folding = 1
 let g:tex_fold_enabled = 1
 let g:vimsyn_folding = 'af'
@@ -135,11 +138,9 @@ set number relativenumber
 set hlsearch
 set splitright
 set splitbelow
-" folding
-set foldmethod=manual
-set nofoldenable
 "indent
 set cinoptions+=:0
+set foldlevelstart=99
 
 "YCM jump
 nnoremap <leader>jj :YcmCompleter GoTo<CR>
@@ -190,6 +191,14 @@ nnoremap <leader>z :bp<cr>
 nnoremap <leader>d :bd<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specialized configurations
+augroup c
+	autocmd!
+	autocmd FileType c setlocal foldmethod=syntax
+	autocmd FileType c setlocal foldlevelstart=99
+	autocmd FileType cpp setlocal foldmethod=syntax
+	autocmd FileType cpp setlocal foldlevelstart=99
+augroup END
+
 augroup python
 	autocmd!
 	" highlight characters past column 80
@@ -220,6 +229,8 @@ augroup END
 augroup javascript
 	autocmd!
 	autocmd FileType javascript let b:delimitMate_matchpairs = "(:),[:],{:}"
+	autocmd FileType javascript setlocal foldmethod=syntax
+	autocmd FileType javascript setlocal foldlevelstart=99
 augroup END
 
 augroup tex
@@ -229,6 +240,8 @@ augroup tex
 	autocmd FileType tex setlocal tabstop=2
 	autocmd FileType tex setlocal shiftwidth=2
 	autocmd FileType tex setlocal expandtab
+	autocmd FileType tex setlocal spell
+	autocmd FileType tex setlocal spelllang=en
     autocmd FileType tex let b:delimitMate_quotes = "\" ' $"
 	autocmd FileType tex let b:delimitMate_matchpairs = "(:),[:],{:}"
 	autocmd FileType tex highlight Excess ctermbg = DarkGrey guibg = Black
