@@ -41,6 +41,8 @@ Plugin 'wlangstroth/vim-racket'
 Plugin 'derekelkins/agda-vim'
 " Solidity
 Plugin 'tomlion/vim-solidity'
+" ARM assembly
+Plugin 'ARM9/arm-syntax-vim'
 
 
 call vundle#end()
@@ -257,6 +259,20 @@ augroup agda
 	autocmd FileType agda setlocal expandtab
 	autocmd FileType agda highlight Excess ctermbg = DarkGrey guibg = Black
 	autocmd FileType agda match Excess /\%80v.*/
+augroup END
+
+" au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
+let g:syntastic_asm_compiler = "arm-none-eabi-gcc"
+let g:syntastic_filetype_map = { "armv5": "asm" }
+augroup arm_asm
+	autocmd!
+	" highlight characters past column 80
+	autocmd FileType armv5 highlight Excess ctermbg = DarkGrey guibg = Black
+	autocmd FileType armv5 match Excess /\%80v.*/
+	autocmd FileType armv5 setlocal nowrap
+	autocmd FileType armv5 setlocal tabstop=4
+	autocmd FileType armv5 setlocal shiftwidth=4
+	autocmd FileType armv5 setlocal expandtab
 augroup END
 
 call pymode#default('g:pymode_rope_autoimport', 0)
