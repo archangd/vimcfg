@@ -12,7 +12,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Common bundles
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'Yggdroot/indentLine'
@@ -30,7 +30,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'othree/javascript-libraries-syntax.vim'
 " Python bundles
-Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
 Plugin 'szymonmaszke/vimpyter'
 " TeX bundles
 Plugin 'lervag/vimtex'
